@@ -22,28 +22,22 @@ body {
   padding: 0 24px;
 }
 
-/* ========== шапка ========== */
+/* ========== шапка (увеличим на телефоне) ========== */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 28px 0 20px;
+  padding: 20px 0;
   border-bottom: 1px solid rgba(80, 120, 220, 0.3);
 }
 
 .logo {
   font-size: 2rem;
   font-weight: 700;
-  letter-spacing: -0.3px;
   background: linear-gradient(135deg, #ffffff, #8bb5ff, #6a4eff);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-}
-
-.nav {
-  display: flex;
-  gap: 32px;
 }
 
 .nav a {
@@ -51,51 +45,35 @@ body {
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: color 0.2s;
 }
 
-.nav a:hover {
-  color: #8bb5ff;
-}
-
-.btn-talk {
-  background: transparent;
-  border: 1px solid #6a4eff;
-  padding: 8px 24px;
-  border-radius: 30px;
-  color: #8bb5ff;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: all 0.2s;
-}
-
-.btn-talk:hover {
-  background: rgba(106, 78, 255, 0.15);
-  border-color: #8bb5ff;
-  box-shadow: 0 0 12px rgba(106, 78, 255, 0.3);
-}
-
-/* ========== герой ========== */
+/* ========== герой (строго на весь экран) ========== */
 .hero {
-  padding: 100px 0 80px;
+  padding: 0;
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .hero h1 {
-  font-size: 3.8rem;
+  font-size: 3.5rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.1;
-  background: linear-gradient(135deg, #ffffff, #c5d5ff);
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ffffff, #c5d5ff, #8bb5ff);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  max-width: 800px;
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: #8a98b5;
   max-width: 550px;
   margin: 0 auto 32px;
@@ -105,28 +83,20 @@ body {
   background: linear-gradient(95deg, #5a3eff, #8b5cff);
   color: white;
   text-decoration: none;
-  padding: 12px 32px;
-  border-radius: 30px;
+  padding: 14px 36px;
+  border-radius: 40px;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
   display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(90, 62, 255, 0.3);
+  box-shadow: 0 0 20px rgba(90, 62, 255, 0.4);
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(90, 62, 255, 0.5);
-}
-
-/* ========== секции ========== */
-.section-title {
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  text-align: center;
-  margin-bottom: 56px;
-  color: #ffffff;
+/* услуги — чистый отступ сверху */
+.services {
+  position: relative;
+  margin-bottom: 100px;
+  padding-top: 60px;
 }
 
 /* ========== УСЛУГИ — КОСМИЧЕСКОЕ СТЕКЛО ========== */
@@ -514,45 +484,51 @@ body {
   }
 }
 
-/* Телефоны (до 768px) */
 @media (max-width: 768px) {
   body {
     overflow-x: hidden;
   }
 
   .container {
-    padding: 0 16px;
+    padding: 0 20px;
     overflow-x: hidden;
   }
 
-  /* шапка */
+  /* ✅ ШАПКА: лого сверху, навигация снизу (как работало) */
   .header {
     flex-direction: column;
+    align-items: center;
     gap: 16px;
     padding: 20px 0;
     text-align: center;
   }
 
+  /* ✅ ЛОГОТИП: крупный, сверху */
   .logo {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
+    font-weight: 700;
   }
 
+  /* ✅ НАВИГАЦИЯ: снизу, по центру */
   .nav {
-    gap: 20px;
-    flex-wrap: wrap;
+    display: flex;
+    gap: 28px;
     justify-content: center;
+    width: 100%;
   }
 
   .nav a {
-    font-size: 0.85rem;
+    font-size: 1rem;
+    font-weight: 500;
   }
 
+  /* ✅ КНОПКА: под навигацией */
   .btn-talk {
-    padding: 6px 20px;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    padding: 8px 24px;
   }
 
-  /* герой */
+  /* Герой */
   .hero {
     padding: 40px 0 35px;
   }
@@ -564,7 +540,6 @@ body {
 
   .hero-subtitle {
     font-size: 0.95rem;
-    padding: 0 10px;
   }
 
   .btn-primary {
@@ -572,17 +547,12 @@ body {
     font-size: 0.9rem;
   }
 
-  /* секции */
   .section-title {
     font-size: 1.5rem;
     margin-bottom: 30px;
   }
 
-  /* услуги — 1 колонка */
-  .services {
-    margin-bottom: 60px;
-  }
-
+  /* Услуги */
   .services-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -592,22 +562,14 @@ body {
     padding: 24px 20px;
   }
 
-  .service-card i {
-    font-size: 2rem;
-  }
-
-  .service-card h3 {
-    font-size: 1.1rem;
-  }
-
-  /* о нас */
+  /* ✅ О НАС — ВОЗВРАЩАЕМ ТРИ КАРТОЧКИ */
   .about {
     margin-bottom: 60px;
   }
 
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 32px;
     padding: 28px 20px;
     text-align: center;
   }
@@ -620,53 +582,52 @@ body {
     font-size: 0.9rem;
   }
 
+  /* ✅ СТАТИСТИКА — ТРИ БЛОКА: год основания, ответственность, на связи */
   .about-stats {
+    display: flex;
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
   }
 
+  .stat {
+    text-align: center;
+    min-width: 80px;
+  }
+
   .stat-number {
     font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff, #8bb5ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 
   .stat-label {
     font-size: 0.7rem;
+    color: #8a98b5;
   }
 
-  /* миссия */
+  /* Миссия и цель */
   .mission {
-    margin: 40px 0 30px;
     padding: 35px 20px;
+    margin: 40px 0 30px;
   }
 
   .mission-text {
     font-size: 1.2rem;
-    padding: 0 10px;
   }
 
-  .mission-label {
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-  }
-
-  /* цель */
   .goal {
     margin: 0 0 60px;
-    padding: 0 0 40px;
   }
 
   .goal-text {
     font-size: 1.2rem;
-    padding: 0 10px;
   }
 
-  .goal-label {
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-  }
-
-  /* контакты */
+  /* Контакты */
   .contact {
     margin-bottom: 60px;
   }
@@ -678,30 +639,19 @@ body {
   }
 
   .contact-item {
-    width: 100%;
     max-width: 280px;
     justify-content: center;
-    padding: 10px 16px;
-    font-size: 0.85rem;
-  }
-
-  .contact-item i {
-    font-size: 1rem;
+    width: 100%;
   }
 
   .contact-item span {
     word-break: break-all;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 
-  .copy-btn {
-    padding: 3px 10px;
-    font-size: 0.65rem;
-  }
-
-  /* футер */
+  /* Футер */
   .footer {
-    padding: 24px 16px;
+    padding: 24px 20px;
   }
 
   .footer-content {
@@ -710,24 +660,122 @@ body {
     gap: 12px;
   }
 
-  .footer-content p {
-    font-size: 0.75rem;
-  }
-
   .social-icons a {
-    font-size: 1.1rem;
     margin: 0 10px;
   }
 }
+/* Если всё вместе не влезает — кнопка под навигацию */
+@media (max-width: 550px) {
+  .header {
+    flex-wrap: wrap;
+  }
+  .nav {
+    order: 1;
+  }
+  .btn-talk {
+    order: 2;
+  }
+}
 
-/* Очень маленькие телефоны (до 480px) */
-@media (max-width: 480px) {
+/* Герой */
+.hero {
+  padding: 50px 0 45px;
+}
+
+.hero h1 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 0.95rem;
+  padding: 0 5px;
+}
+
+.btn-primary {
+  padding: 12px 28px;
+  font-size: 0.95rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 32px;
+}
+
+.services-grid {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.service-card {
+  padding: 24px 20px;
+}
+
+.about-grid {
+  padding: 28px 20px;
+  gap: 28px;
+  text-align: center;
+}
+
+.about-stats {
+  justify-content: center;
+  gap: 30px;
+}
+
+.mission-text,
+.goal-text {
+  font-size: 1.2rem;
+}
+
+.contact-links {
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-item {
+  max-width: 280px;
+  justify-content: center;
+}
+
+.footer-content {
+  flex-direction: column;
+  text-align: center;
+}
+
+@media (max-width: 430px) {
   .container {
+    padding: 0 16px;
+  }
+
+  .header {
+    padding: 14px 0;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav {
+    gap: 18px;
+  }
+
+  .nav a {
+    font-size: 0.8rem;
+  }
+
+  .btn-talk {
+    padding: 5px 14px;
+    font-size: 0.75rem;
+  }
+
+  .hero {
+    min-height: 100vh;
     padding: 0 12px;
   }
 
   .hero h1 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 
   .hero-subtitle {
@@ -736,62 +784,90 @@ body {
 
   .section-title {
     font-size: 1.3rem;
+    text-align: center;
   }
 
   .service-card {
-    padding: 20px 16px;
-  }
-
-  .service-card i {
-    font-size: 1.8rem;
-  }
-
-  .service-card h3 {
-    font-size: 1rem;
-  }
-
-  .service-card p {
-    font-size: 0.8rem;
+    padding: 18px 16px;
+    text-align: center;
   }
 
   .about-grid {
     padding: 20px 16px;
+    text-align: center;
   }
 
-  .about-text h2 {
-    font-size: 1.3rem;
+  .mission,
+  .goal {
+    text-align: center;
   }
 
   .mission-text,
   .goal-text {
     font-size: 1rem;
+    text-align: center;
   }
 
   .contact-item {
     max-width: 260px;
-    padding: 8px 12px;
-  }
-
-  .contact-item span {
-    font-size: 0.7rem;
+    justify-content: center;
   }
 }
-
-/* iPhone 14 Pro Max и большие телефоны (до 430px) */
-@media (max-width: 430px) {
+@media (max-width: 380px) {
   .hero h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .nav a {
+    font-size: 0.7rem;
+  }
+
+  .btn-talk {
+    padding: 3px 10px;
+    font-size: 0.65rem;
   }
 
   .service-card {
-    padding: 22px 16px;
+    padding: 16px 12px;
   }
 
-  .about-stats {
-    gap: 20px;
+  .service-card i {
+    font-size: 1.6rem;
   }
 
-  .stat-number {
-    font-size: 1.3rem;
+  .mission-text,
+  .goal-text {
+    font-size: 0.9rem;
   }
+}
+/* ЖЁСТКИЙ ФИКС ДЛЯ ЗАГОЛОВКОВ НА ВСЕХ ЭКРАНАХ */
+.section-title {
+  text-align: center !important;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Дополнительная страховка для услуг */
+.services {
+  text-align: center;
+}
+
+.services .section-title {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
 }
